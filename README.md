@@ -42,14 +42,29 @@
 - 消息提示`msg`：返回码非0时消息提示
 - 数据包体`data`：数据payload
 
+> 这个约定可以忽略，直接使用`ctx.body`也是没问题的。
+
+遵循这个约定有一些方便的操作：
+#### 1. 错误抛出：
+若想在业务逻辑里抛出用户级错误，可标记expose为`true`，结合koa2，可这样实现
+```
+ctx.throw('用户级错误abc', { expose: true, code: 9001 });
+```
+
+抛出错误后，接口返回`{ code: 9001, msg: '用户级错误abc' }`
+
+#### 2. 快捷构建返回包
 为方便构建返回数据包，在`ctx`对象上新增3个对应字段`ctx.resCode`、`ctx.resMsg`、`ctx.resData`来替代`ctx.body`。
 一些注意点：
 - 只赋值resData，响应内容为：`{ code: 0, data: resData }`
 - 只赋值resCode，且不为0，响应内容为：`{ code: resCode, msg: ctx.resMsg || '系统繁忙，请稍后重试' }`
 - `libs/errors`定义了一些通用的用户级错误返回码
-- 赋值`resCode`或`resMsg`可以使得log模块识别处理，并记录进日志里。
 
-> 这个约定可以忽略，直接使用`ctx.body`也是没问题的。
+#### 3. 日志友好
+赋值`resCode`、`resMsg`或者`resBody`可以使得log模块识别请求返回数据，并记录进日志里，方便还原用户场景，如：
+```
+2017-01-13T16:52:55+0800 <debug> visitlog.js(#47): fi4g0acifijjn10 - userResponse - 200 - 72.928ms - 36 - {"code":9001,"msg":"xxx error"}
+```
 
 ### 数据验证
 `Joi.validateThrow`是脚手架提供的工具函数，参数验证通过时，返回最终的数据对象；验证失败时抛出用户级错误。
