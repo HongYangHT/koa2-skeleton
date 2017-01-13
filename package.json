@@ -1,0 +1,42 @@
+{
+  "name": "koa2-skeleton",
+  "version": "1.0.0",
+  "description": "simple nodejs skeleton build with koa2(without babel)",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm run serve:dev",
+    "debug": "NODE_ENV=dev node debug --harmony_async_await app.js",
+    "serve:dev": "NODE_ENV=dev node --harmony_async_await app.js",
+    "serve:test": "NODE_ENV=test node --harmony_async_await app.js",
+    "serve:dist": "NODE_ENV=dist node --harmony_async_await app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa2"
+  ],
+  "author": "lzhspace@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "joi": "^10.1.0",
+    "koa": "^2.0.0",
+    "koa-adapter-bluebird": "0.0.1",
+    "koa-bodyparser": "^3.2.0",
+    "koa-compress": "^2.0.0",
+    "koa-conditional-get": "^2.0.0",
+    "koa-etag": "^3.0.0",
+    "koa-favicon": "^2.0.0",
+    "koa-helmet": "^2.0.0",
+    "koa-response-time": "^2.0.0",
+    "koa-router": "^7.0.1",
+    "koa-static": "^3.0.0",
+    "koa-swig": "^2.2.1",
+    "lark-router": "^1.0.2",
+    "lodash": "^4.6.1",
+    "on-finished": "^2.3.0",
+    "on-headers": "^1.0.1",
+    "request": "^2.79.0",
+    "request-debug": "^0.2.0",
+    "request-promise": "^4.1.1",
+    "tracer": "^0.8.7"
+  }
+}
