@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-11 20:48:30
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-13 16:48:28
+* @Last Modified time: 2017-01-16 22:26:16
 */
 
 const request = require('request-promise');
@@ -11,7 +11,7 @@ const Joi = require('joi');
 const Errors = require('./libs/errors')
 
 /**
- * [validateThrow 如果校验失败，throw error，如果成功，返回转换后的数据]
+ * [validateThrow: throw error when parameters are invalid, or return formatted data when valid]
  * @param  {[type]} argument [description]
  * @return {[type]}          [description]
  */

@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2016-09-06 13:36:08
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-11 14:03:40
+* @Last Modified time: 2017-01-16 22:05:28
 */
 
 const _ = require("lodash");
@@ -42,7 +42,7 @@ if(fs.existsSync(envFilePath)) {
     config.env = env;
   }
   catch(_) {
-    console.log(`加载${env}配置文件失败`);
+    console.error(`failed to load ${env} config file!`);
   }
 }
 

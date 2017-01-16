@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-11 17:36:32
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-13 17:04:52
+* @Last Modified time: 2017-01-16 22:23:11
 */
 
 let rp = require('request-promise');
@@ -10,12 +10,9 @@ let rp = require('request-promise');
 var Errors = require('../libs/errors');
 var _ = require('lodash');
 
-// 哪些返回码标记为用户级错误
+// mark inner return code which can be displayed on the user client
 var extractCodes = {
-  "9001": "交易时间非法",
-  "9002": "购买份额超过可用份额",
-  "9003": "该代码当前时间不允许操作",
-  "9004": "客户不存在"
+  "9001": "parameters invalid"
 };
 
 var counterRequest = rp.defaults({
@@ -25,9 +22,9 @@ var counterRequest = rp.defaults({
   method: 'POST',
   transform(body) {
     /**
-     * 解包
-     * - 公共的错误处理
-     * - 磨平不同接口的参数规则，对外提供统一的返回数据规则
+     * Package Decode
+     * - Common error haandling
+     * - Polish the parameters rules of different interfaces, to provide a unified output rules
      */
     if(!body) return Errors.EmptyError;
     if(body.errorno === 0) {

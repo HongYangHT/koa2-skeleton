@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-10 16:13:34
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-13 16:54:45
+* @Last Modified time: 2017-01-16 22:16:30
 */
 
 const Errors = require('../libs/errors');
@@ -41,7 +41,7 @@ module.exports = async function(ctx, next) {
     } else {
       logger.error(err.stack);
       if(!err.expose && !config.debug) {
-        // 发生了内部错误，但不会暴露给客户端，可以在log里查看具体调用栈
+        // Internal error occurred, but this will not expose to client.
         err.message = Errors.UnknownError.msg;
       }
     }

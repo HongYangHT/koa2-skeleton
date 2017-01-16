@@ -2,14 +2,14 @@
 * @Author: lizhonghui
 * @Date:   2017-01-10 16:21:25
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-10 16:22:00
+* @Last Modified time: 2017-01-16 22:27:16
 */
 
 module.exports = {
-  UnknownError: { code: 11, msg: '系统错误，请稍候重试' },
-  ParamMissing: { code: 12, msg: '缺少传入参数' },
-  ParamError: { code: 13, msg: '传入参数错误' },
-  InterfError: { code: 14, msg: '内部接口错误，请稍候重试' },
-  EmptyError: { code: 15, msg: '内部接口错误，请稍候重试' },
-  DataError: { code: 16, msg: '内部接口数据有误' }, // 有数据，但与预期不同
+  UnknownError: { code: 11, msg: 'System error. Please try again later ' }, 
+  ParamMissing: { code: 12, msg: 'Missing parameters' },
+  ParamError: { code: 13, msg: 'Parameters error' }, 
+  InterfError: { code: 14, msg: 'Internal interface error. Please try again later' },
+  EmptyError: { code: 15, msg: 'Internal interface error. Please try again later' }, 
+  DataError: { code: 16, msg: 'unexpected internal interface data ' }, 
 }

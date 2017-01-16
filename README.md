@@ -1,11 +1,41 @@
 # Koa2-Skeleton
 
+Using Koa2 to build Nodejs web server (without babel).
+
+## Install
+
+- Since babel is removed, make sure your nodejs version > 7.x
+- Run `npm install` to get the necessary dependencies
+- Run `npm start` to start the server
+- Head over to http://localhost:3000
+
+## Basic Feature
+
+- Log Service: [tracer](https://github.com/baryon/tracer)
+- Params Validation: [Joi](https://github.com/hapijs/joi)
+- Template Engine: [swig](http://yangxiaofu.com/swig/)
+- General Security: [helmet](https://github.com/helmetjs/helmet)
+- Data Request: [request-promise](https://github.com/request/request-promise)
+- Router: [lark-router](https://github.com/larkjs/lark-router)
+- Simple and flexible multi-environment configuration
+
+## Contributing
+
+Pull requests if you feel like anything is not good enough or missing out.
+
+## License
+
+MIT
+
+# Koa2脚手架
+
 使用 Koa2 来构建 Nodejs Web 应用（非babel编译）
 
 ## 安装使用
 - 无须Babel编译，确保你的Node版本不小于7.x
 - 使用`npm install`安装依赖
-- 使用`npm start`启动应用。
+- 使用`npm start`启动应用
+- 浏览器打开 http://localhost:3000
 
 ## 基本功能
 
@@ -77,6 +107,7 @@ let query = Joi.validateThrow(ctx.query, {
 ```
  
 ### 测试
+> 完善中...
  
 ### 日志使用
 
