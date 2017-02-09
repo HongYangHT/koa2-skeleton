@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-10 16:13:34
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-02-09 23:51:10
+* @Last Modified time: 2017-02-09 23:57:16
 */
 
 const Errors = require('../libs/errors');
@@ -47,9 +47,9 @@ module.exports = async function(ctx, next) {
       }
     }
     ctx.type = 'application/json';
-    ctx.status = err.code ? 200 : err.status || 500;
+    ctx.status = err[codeMark] ? 200 : err.status || 500;
     ctx.body = ctx.resBody = {
-      [codeMark]: err.code || Errors.UnknownError.code,
+      [codeMark]: err[codeMark] || Errors.UnknownError[codeMark],
       [msgMark]: err.msg || err.message
     }
   }
