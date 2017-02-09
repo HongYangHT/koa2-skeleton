@@ -2,17 +2,18 @@
 * @Author: lizhonghui
 * @Date:   2017-01-10 16:13:34
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-16 22:16:30
+* @Last Modified time: 2017-02-09 23:51:10
 */
 
 const Errors = require('../libs/errors');
 const config = require('../config');
+const innerConfig = require('../config/inner');
 const logger = require('../libs/logger');
 const _ = require('lodash');
 
-const codeMark = 'code';
-const dataMark = 'data';
-const msgMark = 'msg';
+const codeMark = innerConfig.codeMark;
+const dataMark = innerConfig.dataMark;
+const msgMark = innerConfig.msgMark;
 
 module.exports = async function(ctx, next) {
   try {
