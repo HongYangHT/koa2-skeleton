@@ -128,7 +128,14 @@ reqid：用户请求ID，每次请求都会分配唯一的请求ID，存放在`c
 ### 完整请求链路跟踪
 `ctx.reqid`标记着每个请求的标志。
 
-标记用户的请求进出使用`middlewares/visitlog.js`定制实现，参考morgan定制。
+标记用户的请求进出使用`middlewares/visitlog.js`定制实现，参考morgan定制，格式如下：
+```
+// request
+{time} - <{level}> - {file}(#{line}): {reqid} - userRequest - {method} - {path} - {remoteIp} - {referer} - {userAgent}
+// response
+{time} - <{level}> - {file}(#{line}): {reqid} - userReponse - {statusCode} - {responeTime} - {contentLength} - {content}
+```
+示例如下：
 ```
 // request
 2017-01-12T15:55:41+0800 <debug> visitlog.js(#32): hlsbupmbjmwpqc0 - userRequest - GET - /gfask/api - ::1 - ? - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.95 Safari/537.36
