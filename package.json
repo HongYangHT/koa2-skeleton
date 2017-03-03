@@ -5,10 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "npm run serve:dev",
-    "debug": "NODE_ENV=dev node debug --harmony_async_await app.js",
-    "serve:dev": "NODE_ENV=dev node --harmony_async_await app.js",
-    "serve:test": "NODE_ENV=test node --harmony_async_await app.js",
-    "serve:dist": "NODE_ENV=dist node --harmony_async_await app.js",
+    "debug": "NODE_ENV=dev node debug app.js",
+    "serve:dev": "NODE_ENV=dev node app.js",
+    "serve:test": "NODE_ENV=test node app.js",
+    "serve:dist": "NODE_ENV=dist node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -38,5 +38,8 @@
     "request-debug": "^0.2.0",
     "request-promise": "^4.1.1",
     "tracer": "^0.8.7"
+  },
+  "engines": {
+    "node": ">=7.6.0"
   }
 }

@@ -4,7 +4,7 @@ Using Koa2 to build Nodejs web server (without babel).
 
 ## Install
 
-- Since babel is removed, make sure your nodejs version > 7.x
+- Make sure your nodejs version > 7.6, since babel is removed.
 - Run `npm install` to get the necessary dependencies
 - Run `npm start` to start the server
 - Head over to http://localhost:3000
@@ -32,10 +32,12 @@ MIT
 使用 Koa2 来构建 Nodejs Web 应用（非babel编译）
 
 ## 安装使用
-- 无须Babel编译，确保你的Node版本不小于7.x
+- 无须Babel编译，确保你的Node版本不小于7.6
 - 使用`npm install`安装依赖
 - 使用`npm start`启动应用
 - 浏览器打开 http://localhost:3000
+
+> 如果你的Node版本大于7.0小于7.6，可以添加 `--harmony_async_await` node参数开启async特性。
 
 ## 基本功能
 
