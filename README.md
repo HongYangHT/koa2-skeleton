@@ -9,6 +9,8 @@ Using Koa2 to build Nodejs web server (without babel).
 - Run `npm start` to start the server
 - Head over to http://localhost:3000
 
+> If your Node version is less than 7.6, but greater than 7.0, you can add this command `--harmony_async_await` to enable async/await feature.
+
 ## Basic Feature
 
 - Log Service: [tracer](https://github.com/baryon/tracer)
