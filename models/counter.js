@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-11 17:36:32
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-16 22:23:11
+* @Last Modified time: 2017-03-27 21:42:08
 */
 
 let rp = require('request-promise');
@@ -50,15 +50,15 @@ var counterRequest = rp.defaults({
   }
 });
 
-function request(options, reqid) {
-  if(reqid) {
+function request(ctx, options) {
+  if(ctx.reqid) {
     if(_.isString(options)) {
       options = {
         uri: options
       }
     }
     options.headers = options.headers || {};
-    options.headers.reqid = reqid;
+    options.headers.reqid = ctx.reqid;
   }
   return counterRequest(options).catch(err => {
     return Errors.InterfError
