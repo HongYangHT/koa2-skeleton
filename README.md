@@ -191,4 +191,10 @@ module.exports = router => {
 
 > 更多强大路由功能参考lark-router的github（https://github.com/larkjs/lark-router）。
 
+### 数据层
+访问路径：controller -> service -> model
+- model: 封装不同接口，磨平不同接口的调用差异，对上层返回统一且是用户级的返回信息。
+- service: 某一功能的函数合集（例如订单等），这样的功能合集可能需要调用多个不同的model来联合完成。
+- controller: 业务逻辑层，通过调用service来获取数据能力，controller层不建议直接访问model层。
+
 
