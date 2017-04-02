@@ -9,7 +9,8 @@
     "serve:dev": "NODE_ENV=dev node app.js",
     "serve:test": "NODE_ENV=test node app.js",
     "serve:dist": "NODE_ENV=dist node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:arg": "eslint --fix"
   },
   "keywords": [
     "koa2"
@@ -41,5 +42,10 @@
   },
   "engines": {
     "node": ">=7.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.2",
+    "eslint-plugin-import": "^2.2.0"
   }
 }
