@@ -2,7 +2,7 @@
 * @Author: lizhonghui
 * @Date:   2017-01-10 17:23:04
 * @Last Modified by:   lizhonghui
-* @Last Modified time: 2017-01-12 20:24:14
+* @Last Modified time: 2017-04-02 23:41:27
 */
 
 const logger = require('./libs/logger');
@@ -33,9 +33,9 @@ app.use(require('koa-bodyparser')());
 
 // static file serving
 const serve = require('koa-static');
-app.use(serve(__dirname + '/public'));
+app.use(serve(`${__dirname}/public`));
 const favicon = require('koa-favicon');
-app.use(favicon(__dirname + '/public/favicon.ico'));
+app.use(favicon(`${__dirname}/public/favicon.ico`));
 
 // router
 app.use(require('./middlewares/router'));
@@ -44,7 +44,7 @@ app.use(require('./middlewares/router'));
 const co = require('bluebird').coroutine;
 const render = require('koa-swig');
 app.context.render = co(render({
-  root: __dirname + '/views',
+  root: `${__dirname}/views`,
   autoescape: true,
   cache: 'memory', // disable, set to false
   ext: 'html',
@@ -53,16 +53,16 @@ app.context.render = co(render({
 
 const http = require('http');
 const server = http.createServer(app.callback());
-server.listen(process.env.PORT || 3000)
+server.listen(process.env.PORT || 3000);
 server.on('listening', () => {
-  console.log('Server listening on http://localhost:%d', server.address().port);
+  console.log(`Server listening on http://localhost:${server.address().port}`);
 });
 
-process.on('uncaughtException', err => {
-  if(_.isString(err)) err = new Error(err);
+process.on('uncaughtException', (err) => {
+  if (_.isString(err)) err = new Error(err);
   logger.error(err.stack);
   try {
-    var killTimer = setTimeout(() => {
+    const killTimer = setTimeout(() => {
       process.exit(1);
     }, 30000);
     killTimer.unref();
@@ -73,4 +73,4 @@ process.on('uncaughtException', err => {
 });
 
 
-module.exports = app
+module.exports = app;
