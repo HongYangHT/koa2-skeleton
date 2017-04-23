@@ -15,33 +15,30 @@ const codeMark = innerConfig.codeMark;
 const dataMark = innerConfig.dataMark;
 const msgMark = innerConfig.msgMark;
 
-module.exports = async function(ctx, next) {
+module.exports = async function response(ctx, next) {
   try {
     await next();
-    if(ctx.resBody) {
+    if (ctx.resBody) {
       ctx.body = ctx.resBody;
-    }
-    else if(ctx.resCode) {
+    } else if (ctx.resCode) {
       ctx.body = ctx.resBody = {
         [codeMark]: ctx.resCode,
         [msgMark]: ctx.resMsg || Errors.UnknownError.msg
-      }
-    } else if(ctx.resData) {
+      };
+    } else if (ctx.resData) {
       ctx.body = ctx.resBody = {
         [codeMark]: 0,
         [dataMark]: ctx.resData
-      }
+      };
     }
-  }
-  catch(err) {
-    if(!err) {
+  } catch (err) {
+    if (!err) {
       err = new Error(Errors.UnknownError.msg);
-    }
-    else if(_.isString(err)) {
+    } else if (_.isString(err)) {
       err = new Error(err);
     } else {
       logger.error(err.stack);
-      if(!err.expose && !config.debug) {
+      if (!err.expose && !config.debug) {
         // Internal error occurred, but this will not expose to client.
         err.message = Errors.UnknownError.msg;
       }
@@ -51,6 +48,6 @@ module.exports = async function(ctx, next) {
     ctx.body = ctx.resBody = {
       [codeMark]: err[codeMark] || Errors.UnknownError[codeMark],
       [msgMark]: err.msg || err.message
-    }
+    };
   }
-}
+};
